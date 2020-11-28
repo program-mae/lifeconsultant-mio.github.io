@@ -12,7 +12,65 @@ ul, li{
   padding: 0;
   margin: 0;
 }
-/* リセットCSS */
+
+/* javascript */
+.sa {
+  opacity: 0;
+  transition: all 1s ease;
+}
+.sa.show {
+  opacity: 1;
+  transform: none;
+}
+.sa--up {
+  transform: translate(0, 20px);
+}
+.sa--down {
+  transform: translate(0, -100px);
+  transition: .5s;
+}
+.sa--scaleUp {
+  transform: scale(.5);
+}
+
+.slide_1, .slide_4{
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: 2;
+}
+.slide_2, .slide_6{
+  background-color: #ACA285;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: 2;
+}
+.slide_1.show, .slide_2.show, .slide_5.show{
+  transform: translate(100%, 0);
+  transition: .7s;
+}
+.slide_3, .slide_5{
+  background-color: #C5BEA9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: 2;
+}
+.slide_3.show, .slide_4.show, .slide_6.show{
+  transform: translate(-100%, 0);
+  transition: .7s;
+}
 
 *{
   box-sizing: border-box;
@@ -76,9 +134,13 @@ header{
   color: white;
   display: inline-block;
 }
+.catch_1{
+  padding: 0;
+}
 .catch_2{
   font-size: 50px;
   letter-spacing: 10px;
+  padding: 0;
 }
 .catch_3{
   margin-top: 40px;
@@ -97,9 +159,11 @@ header{
 /* ---------------------------------- sympathy ---------------------------------- */
 .content_1{
   position: relative;
+  overflow: hidden;
 }
 .image{
   height: 205px;
+  position: relative;
 }
 .comment_1{
   position: absolute;
@@ -110,11 +174,13 @@ header{
   border-radius: 0px 24px 24px 0px / 0px 24px 24px 0px;
   text-align: center;
   color: white;
+  z-index: 1;
 }
 .text_1{
   display: flex;
   justify-content: center;
   padding: 70px 20px 40px 20px;
+  position: relative;
 }
 .sympathy .image{
   background: url(images/2-min.png) no-repeat center center;
@@ -126,6 +192,7 @@ header{
 /* ---------------------------------- benefit ---------------------------------- */
 .content_2{
   position: relative;
+  overflow: hidden;
 }
 .comment_2{
   position: absolute;
@@ -137,8 +204,11 @@ header{
   border-radius: 24px 0px 0px 24px / 24px 0px 0px 24px;
   text-align: center;
   color: #ACA285;
+  background-color: white;
+  z-index: 1;
 }
 .text_2{
+  position: relative;
   display: flex;
   justify-content: center;
   padding: 70px 20px 40px 20px;
@@ -150,9 +220,6 @@ header{
 }
 .benefit .text_2{
   background-color: #C5BEA9;
-}
-.comment_2{
-  background-color: white;
 }
 /* ---------------------------------- select ---------------------------------- */
 .select .image{
@@ -191,6 +258,10 @@ header{
   background-color: #ACA285;
   padding: 80px 5% 50px 5%;
   margin: 70px 0;
+  overflow: hidden;
+}
+.support_p_re{
+  position: relative;
 }
 .support_p{
   font-size: 35px;
@@ -210,6 +281,9 @@ header{
   justify-content: center;
 }
 /* ---------------------------------- mental ---------------------------------- */
+.mental_p_re{
+  position: relative;
+}
 .mental_p{
   color: white;
   font-size: 25px;
@@ -241,6 +315,9 @@ header{
 }
 .mental_content_p_2{
   padding: 5% 2%;
+}
+.support_con, .mental_2{
+  position: relative;
 }
 /* ---------------------------------- asset ---------------------------------- */
 .asset_img_1{
@@ -381,6 +458,7 @@ header{
     width: 55%;
     line-height: 80px;
     border-radius: 32px;
+    z-index: 3;
   }
   .comment_2{
     left: 5%;
@@ -388,6 +466,7 @@ header{
     width: 55%;
     line-height: 80px;
     border-radius: 32px;
+    z-index: 4;
   }
   .text_1, .text_2{
     width: 50%;
@@ -395,6 +474,7 @@ header{
     padding: 5%;
     justify-content: flex-start;
     align-items: flex-end;
+    z-index: 3;
   }
   .sympathy_text{
     padding: 0 0 200px 13%;
@@ -440,6 +520,10 @@ header{
     width: 50%;
     max-width: 600px;
     height: 500px;
+  }
+  .mental_p_re{
+    width: 500px;
+    margin: 0 auto;
   }
   .mental_p {
     font-size: 45px;
